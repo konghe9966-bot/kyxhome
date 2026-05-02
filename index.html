@@ -510,6 +510,74 @@
             color: var(--text-light);
         }
 
+        /* FAQ */
+        .faq { background: var(--bg); }
+
+        .faq-list {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            overflow: hidden;
+            transition: box-shadow var(--transition);
+        }
+
+        .faq-item:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+        .faq-q {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark);
+            text-align: left;
+            gap: 12px;
+            font-family: inherit;
+        }
+
+        .faq-q .q-mark {
+            color: var(--primary);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .faq-q .arrow {
+            font-size: 12px;
+            color: var(--text-light);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 300px;
+        }
+
+        .faq-a-inner {
+            padding: 0 24px 20px 44px;
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
         /* Philosophy */
         .philosophy-grid {
             display: grid;
@@ -644,6 +712,9 @@
 
             .coop-card { padding: 28px 24px; }
             .coop-cta .cta-btn { padding: 14px 36px; font-size: 16px; }
+
+            .faq-q { font-size: 15px; padding: 16px 20px; }
+            .faq-a-inner { padding: 0 20px 16px 36px; font-size: 14px; }
 
             .about-stats { grid-template-columns: 1fr 1fr; }
 
@@ -820,6 +891,76 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">常见问题</h2>
+            <p class="section-desc">关于牛奶绒产品与合作的常见疑问，这里都有答案</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFAQ(this)">
+                        <span class="q-mark">Q</span>
+                        <span>牛奶绒和珊瑚绒、法兰绒有什么区别？</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        牛奶绒采用<strong>超细纤维</strong>经特殊砂洗工艺处理，绒面比珊瑚绒更丰盈细腻，克重更高、保暖性更好。不同于法兰绒的机织拉毛，牛奶绒为针织底布植绒，<strong>弹性更佳、不掉毛不板结</strong>。一句话：珊瑚绒穿一季就塌，牛奶绒洗三年照样蓬松。
+                    </div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFAQ(this)">
+                        <span class="q-mark">Q</span>
+                        <span>四件套包含哪四件？尺寸是标准尺寸吗？</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        标准四件套包含：<strong>被套 ×1、床单 ×1、枕套 ×2</strong>。我们生产标准尺寸（1.5m床/1.8m床），也支持<strong>特殊尺寸定做</strong>。被套为拉链封口设计，枕套为信封式，方便拆洗。
+                    </div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFAQ(this)">
+                        <span class="q-mark">Q</span>
+                        <span>你们的品质怎么保证？和市面便宜货有什么不一样？</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        我们有<strong>全产业链优势</strong>：从纺丝、织布、印染到成品缝制，全部在自有工厂完成。<strong>自主印染车间</strong>确保色彩精准不偏色，<strong>五道砂洗工艺</strong>让绒毛蓬松耐洗。市面上很多低价产品省掉了砂洗和定型环节，洗一水就变形起球——我们每一匹布都经过<strong>全程自检</strong>，出厂前逐条验收。
+                    </div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFAQ(this)">
+                        <span class="q-mark">Q</span>
+                        <span>你们的价格有优势吗？为什么能做到工厂直供价？</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        <strong>全产业链就是我们的价格武器</strong>。纺丝、织布、印染、成品，四大环节全部在自有工厂内完成，没有外发加工费、没有中间商赚差价。你拿到的就是工厂一手价。对比市场上同类品质的产品，我们的价格<strong>低 15%-30%</strong>，而品质只高不低。
+                    </div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFAQ(this)">
+                        <span class="q-mark">Q</span>
+                        <span>起订量多少？支持拿样品吗？</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        <strong>批发/OEM：</strong>50 套起订，支持混批选款。<strong>一件代发：</strong>0 库存门槛，1 套也能发。<strong>样品：</strong>支持付费寄样（大货可抵扣），也欢迎实地考察工厂，亲眼看看我们的生产线和品质。地址：河南省商丘市夏邑县会亭镇。
+                    </div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFAQ(this)">
+                        <span class="q-mark">Q</span>
+                        <span>牛奶绒怎么清洗保养？会缩水掉色吗？</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        机洗手洗均可。建议<strong>冷水或30℃以下温水</strong>，使用中性洗涤剂，<strong>不可漂白</strong>。自然阴干即可，避免暴晒。我们的面料经过<strong>预缩处理和环保活性印染</strong>，正常洗护<strong>不缩水、不褪色</strong>。用洗衣机的话建议套洗衣袋，能进一步延长使用寿命。
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Cooperation -->
     <section id="cooperation" class="cooperation">
         <div class="container">
@@ -903,6 +1044,15 @@
     </footer>
 
     <script>
+        function toggleFAQ(btn) {
+            const item = btn.parentElement;
+            const isOpen = item.classList.contains('open');
+            // 关闭其他已打开的
+            document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+            // 切换当前
+            if (!isOpen) item.classList.add('open');
+        }
+
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('show');
         }
